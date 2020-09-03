@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>KALKULATOR_MATERIAŁOWY</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="plaskownik.png" />
+    <None Remove="pret_okragly.png" />
+    <None Remove="profil_prostokat.png" />
+    <None Remove="rura.png" />
+    <None Remove="TYTUŁ.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="plaskownik.png" />
+    <Resource Include="pret_okragly.png" />
+    <Resource Include="profil_prostokat.png" />
+    <Resource Include="rura.png" />
+    <Resource Include="TYTUŁ.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,239 @@
+﻿<Window x:Class="KALKULATOR_MATERIAŁOWY.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KALKULATOR_MATERIAŁOWY"
+        mc:Ignorable="d"
+        Title="KALKULATOR MATERIAŁOWY" Height="530" Width="800">
+    <Grid Background="BurlyWood">
+        <TabControl Background="AntiqueWhite">
+            <TabItem Header="GŁÓWNA" Height="20" VerticalAlignment="Center">
+                <Grid Background="AliceBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="/TYTUŁ.png" ></Image>
+                    <Label HorizontalAlignment="Center" Grid.Row="3" Margin="2,2,2,2">Copyright by Mateusz Bochnia W60116</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="BLACHY">
+                <Grid Background="AliceBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="2" Source="/TYTUŁ.png"></Image>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,5,5,5">
+                        <TextBlock TextWrapping="WrapWithOverflow">Umożliwia obliczenie wagi dla płaskowników oraz dla blach płaskich prostokątnych w różnych konfiguracjach.</TextBlock>
+                    </Label>
+                    <Image Grid.Row="3" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="3" Margin="2,2,2,2" Source="/plaskownik.png"></Image>
+                    <Label Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj grubość (h):</Label>
+                    <TextBox Grid.Row="2" Grid.Column="3" Margin="5,5,5,5" x:Name="plaskownik_grubosc" ToolTip="Wprowadź grubość blachy lub płaskownika"></TextBox>
+                    <Label Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj szerokość (d):</Label>
+                    <TextBox Grid.Row="4" Grid.Column="3" Margin="5,5,5,5" x:Name="plaskownik_szerokosc" ToolTip="Wprowadź szerokość blachy lub płaskownika"></TextBox>
+                    <Label Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj długość (l):</Label>
+                    <TextBox Grid.Row="6" Grid.Column="3" Margin="5,5,5,5" x:Name="plaskownik_dlugosc" ToolTip="Wprowadź długość blachy lub płaskownika"></TextBox>
+                    <Label Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj gatunek:</Label>
+                    <ComboBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="5,5,5,5" x:Name="plaskownik_material" ToolTip="Wybierz gatunek materiału">
+                        <ComboBoxItem x:Name="Alu_6063">Aluminium EN AW-6063</ComboBoxItem>
+                        <ComboBoxItem x:Name="Alu_6082">Aluminium EN AW-6082</ComboBoxItem>
+                        <ComboBoxItem x:Name="Alu_7075">Aluminium EN AW-7075</ComboBoxItem>                        
+                        <ComboBoxItem x:Name="Stalczarna">Stal czarna</ComboBoxItem>
+                        <ComboBoxItem x:Name="Cynk">Ocynk</ComboBoxItem>
+                        <ComboBoxItem x:Name="Braz">Brąz</ComboBoxItem>
+                        <ComboBoxItem x:Name="Miedz">Miedź</ComboBoxItem>
+                        <ComboBoxItem x:Name="Mosiadz">Mosiądz</ComboBoxItem>
+                    </ComboBox>
+                    <Button Grid.Row="8" Grid.Column="3" Margin="5,5,5,5" Click="ButtButton_Click_Licz_Plaskownik">Oblicz</Button>
+                    <Label Grid.Row="7" Grid.Column="3" Margin="5,5,5,5" HorizontalContentAlignment="Right">Waga:</Label>
+                    <Label Grid.Row="7" Grid.Column="4" Margin="5,5,5,5" x:Name="plaskownik_wyswietlanie" BorderThickness="2" BorderBrush="Black" ToolTip="Tutaj będzie wyświetlony wynik"></Label>
+                    <Button Grid.Row="8" Grid.Column="4"  Grid.ColumnSpan="2"  Margin="5,5,5,5" Click="Button_Click_Clear_Wysw_Dane_Plaskownik">Wyczyść dane wprowadzane</Button>
+                    <Button Grid.Row="9" Grid.Column="3" Margin="5,5,5,5" Click="Button_Click_Clear_Wysw_Wynik_Plaskownik">Wyczyść wynik</Button>
+                    <Label HorizontalAlignment="Center" Grid.Row="11" Grid.ColumnSpan="7" Margin="2,2,2,2">Copyright by Mateusz Bochnia W60116</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="PROFILE">
+                <Grid Background="AliceBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="2" Source="/TYTUŁ.png"/>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,0,0,0">
+                        <TextBlock TextWrapping="WrapWithOverflow">Umożliwia obliczenie wagi dla profili w różnych konfiguracjach.</TextBlock>
+                    </Label>
+                    <Image Grid.Row="3" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="3" Source="/profil_prostokat.png"/>
+                    <Label Grid.Row="1" Grid.Column="3" Margin="5,0,0,0">Podaj wysokość (h):</Label>
+                    <TextBox Grid.Row="2" Grid.Column="3" Margin="5,5,5,5" x:Name="profile_wysokosc" ToolTip="Wprowadź wysokość profilu"></TextBox>
+                    <Label Grid.Row="3" Grid.Column="3" Margin="5,0,0,0">Podaj szerokość (d):</Label>
+                    <TextBox Grid.Row="4" Grid.Column="3" Margin="5,5,5,5" x:Name="profile_szerokosc" ToolTip="Wprowadź szerokość profilu"></TextBox>
+                    <Label Grid.Row="5" Grid.Column="3" Margin="5,0,0,0">Podaj grubość (b):</Label>
+                    <TextBox Grid.Row="6" Grid.Column="3" Margin="5,5,5,5" x:Name="profile_grubosc" ToolTip="Wprowadź grubość ścianki profilu"></TextBox>
+                    <Label Grid.Row="7" Grid.Column="3" Margin="5,0,0,0">Podaj długość (l):</Label>
+                    <TextBox Grid.Row="8" Grid.Column="3" Margin="5,5,5,5" x:Name="profile_dlugosc" ToolTip="Wprowadź długość profilu"></TextBox>
+                    <Label Grid.Row="1" Grid.Column="4" Margin="5,0,5,0">Podaj gatunek:</Label>
+                    <ComboBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="5,5,5,5" x:Name="profile_material" ToolTip="Wybierz gatunek materiału">
+                        <ComboBoxItem x:Name="Prof_Alu_6063">Aluminium EN AW-6063</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Alu_6082">Aluminium EN AW-6082</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Alu_7075">Aluminium EN AW-7075</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Stalczarna">Stal czarna</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Cynk">Ocynk</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Braz">Brąz</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Miedz">Miedź</ComboBoxItem>
+                        <ComboBoxItem x:Name="Prof_Mosiadz">Mosiądz</ComboBoxItem>
+                    </ComboBox>
+                    <Button Grid.Row="9" Grid.Column="3" Margin="5,5,5,5" Click="Button_Click_Licz_Profile">Oblicz</Button>
+                    <Label Grid.Row="8" Grid.RowSpan="2" Grid.Column="4" Margin="0,20,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center">Waga:</Label>
+                    <Label Grid.Row="8" Grid.RowSpan="2" Grid.Column="5" Margin="5,20,5,0" x:Name="profile_wyswietlanie" BorderThickness="2" BorderBrush="Black" Height="30" ToolTip="Tutaj będzie wyświetlony wynik"></Label>
+                    <Button Grid.Row="10" Grid.Column="4"  Grid.ColumnSpan="2"  Margin="5,0,5,0" Height="25" VerticalAlignment="Top" Click="Button_Click_Clear_Wysw_Wynik_Profile">Wyczyść dane wprowadzane</Button>
+                    <Button Grid.Row="10" Grid.Column="3" Margin="5,0,5,0" Height="25" VerticalAlignment="Top" Click="Button_Click_Clear_Wysw_Dane_Profile">Wyczyść wynik</Button>
+                    <Label HorizontalAlignment="Center" Grid.Row="12" Grid.ColumnSpan="7" Margin="2,2,2,2">Copyright by Mateusz Bochnia W60116</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="PRĘTY">
+                <Grid Background="AliceBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="2" Source="/TYTUŁ.png"></Image>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,5,5,5">
+                        <TextBlock TextWrapping="WrapWithOverflow">Umożliwia obliczenie wagi dla prętów w różnych konfiguracjach.</TextBlock>
+                    </Label>
+                    <Image Grid.Row="3" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="3" Margin="2,2,2,2" Source="/pret_okragly.png"></Image>
+                    <Label Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj średnicę (d):</Label>
+                    <TextBox Grid.Row="2" Grid.Column="3" Margin="5,5,5,5" x:Name="prety_srednica" ToolTip="Wprowadź średnicę pręta"></TextBox>
+                    <Label Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj długość (l):</Label>
+                    <TextBox Grid.Row="4" Grid.Column="3" Margin="5,5,5,5" x:Name="prety_dlugosc" ToolTip="Wprowadź długość pręta"></TextBox>
+                    <Label Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj gatunek:</Label>
+                    <ComboBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Margin="5,5,5,5" x:Name="prety_material" ToolTip="Wybierz gatunek materiału">
+                        <ComboBoxItem x:Name="Pret_Alu_6063">Aluminium EN AW-6063</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Alu_6082">Aluminium EN AW-6082</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Alu_7075">Aluminium EN AW-7075</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Stalczarna">Stal czarna</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Cynk">Ocynk</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Braz">Brąz</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Miedz">Miedź</ComboBoxItem>
+                        <ComboBoxItem x:Name="Pret_Mosiadz">Mosiądz</ComboBoxItem>
+                    </ComboBox>
+                    <Button Grid.Row="8" Grid.Column="3" Margin="5,5,5,5" Height="20" VerticalAlignment="Bottom" Click="Button_Click_Licz_Prety">Oblicz</Button>
+                    <Label Grid.Row="7" Grid.Column="3" Margin="5,5,5,5" HorizontalContentAlignment="Right">Waga:</Label>
+                    <Label Grid.Row="7" Grid.Column="4" Margin="5,5,5,5" x:Name="prety_wyswietlanie" BorderThickness="2" BorderBrush="Black" ToolTip="Tutaj będzie wyświetlony wynik"></Label>
+                    <Button Grid.Row="8" Grid.Column="4"  Grid.ColumnSpan="2"  Margin="5,5,5,5" Click="Button_Click_Clear_Wysw_Wynik_Prety">Wyczyść dane wprowadzane</Button>
+                    <Button Grid.Row="9" Grid.Column="3" Margin="5,5,5,5" Click="Button_Click_Clear_Wysw_Dane_Prety">Wyczyść wynik</Button>
+                    <Label HorizontalAlignment="Center" Grid.Row="11" Grid.ColumnSpan="7" Margin="2,2,2,2">Copyright by Mateusz Bochnia W60116</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="RURY">
+                <Grid Background="AliceBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.ColumnSpan="2" Source="/TYTUŁ.png"></Image>
+                    <Label HorizontalAlignment="Center" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,5,5,5">
+                        <TextBlock TextWrapping="WrapWithOverflow">Umożliwia obliczenie wagi dla rur w różnych konfiguracjach.</TextBlock>
+                    </Label>
+                    <Image Grid.Row="3" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="3" Margin="2,2,2,2" Source="/rura.png"></Image>
+                    <Label Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj średnicę zewnętrzną (d):</Label>
+                    <TextBox Grid.Row="2" Grid.Column="3" Margin="5,5,5,5" x:Name="rury_srednica_zew" ToolTip="Wprowadź główną średnicę rury"></TextBox>
+                    <Label Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj grubość ścianki (b):</Label>
+                    <TextBox Grid.Row="4" Grid.Column="3" Margin="5,5,5,5" x:Name="rury_gr" ToolTip="Wprowadź grubość ścianki rury"></TextBox>
+                    <Label Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj długość (l):</Label>
+                    <TextBox Grid.Row="6" Grid.Column="3" Margin="5,5,5,5" x:Name="rury_dlugosc" ToolTip="Wprowadź długość rury"></TextBox>
+                    <Label Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" Margin="5,0,0,0">Podaj gatunek:</Label>
+                    <ComboBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Margin="5,5,5,5" x:Name="rury_material" ToolTip="Wybierz gatunek materiału">
+                        <ComboBoxItem x:Name="Rur_Alu_6063">Aluminium EN AW-6063</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Alu_7075">Aluminium EN AW-7075</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Alu_6082">Aluminium EN AW-6082</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Stalczarna">Stal czarna</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Cynk">Ocynk</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Braz">Brąz</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Miedz">Miedź</ComboBoxItem>
+                        <ComboBoxItem x:Name="Rur_Mosiadz">Mosiądz</ComboBoxItem>
+                    </ComboBox>
+                    <Button Grid.Row="8" Grid.Column="3" Margin="5,5,5,5" Click="Button_Click_Licz_Rury">Oblicz</Button>
+                    <Label Grid.Row="7" Grid.Column="3" Margin="5,5,5,5" HorizontalContentAlignment="Right">Waga:</Label>
+                    <Label Grid.Row="7" Grid.Column="4" Margin="5,5,5,5" x:Name="rury_wyswietlanie" BorderThickness="2" BorderBrush="Black" ToolTip="Tutaj będzie wyświetlony wynik"></Label>
+                    <Button Grid.Row="8" Grid.Column="4"  Grid.ColumnSpan="2"  Margin="5,5,5,5" Click="Button_Click_Clear_Wysw_Dane_Rury">Wyczyść dane wprowadzane</Button>
+                    <Button Grid.Row="9" Grid.Column="3" Margin="5,5,5,5" Click="Button_Click_Clear_Wysw_Wynik_Rury">Wyczyść wynik</Button>
+                    <Label HorizontalAlignment="Center" Grid.Row="11" Grid.ColumnSpan="7" Margin="2,2,2,2">Copyright by Mateusz Bochnia W60116</Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
